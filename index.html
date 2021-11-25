@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>传奇调查员生成器1.0</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="logic.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(244,228,194);
+        }
+
+        .cover {
+            color: rgb(229, 111, 127);
+            text-align: center;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            margin-top: -200px;
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            /*设置动画播放次数*/
+            animation-fill-mode: forwards;
+            /*设置样式以在动画不播放时应用元素。forward是设置动画结束后，使用元素的结束属性值*/
+            
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+                /*设置不透明度*/
+            }
+
+            100% {
+                opacity: 1;
+            }
+
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        h2{
+            margin-top: 10px;
+            color:rgb(230,109,126);
+            text-align: center;
+        }
+
+        #result{
+            font-weight: bold;           
+            width: 500px;
+            height: auto;
+            margin: 0 auto;
+            position: relative;
+            font-size: 20px;
+            display:none;
+        }
+        
+        #text{
+            background-color: rgb(246, 235, 213);
+            color:rgb(245,193,117);
+            padding: 5px 0;
+        }
+        
+        p{
+            margin: 15px 20px;
+        }
+
+        #tips{
+            color:rgb(230,109,126);
+            text-align: center;
+        }
+
+        .btn {
+            color: rgb(246, 235, 213);
+            width: 400px;
+            height: 50px;
+            background-color: rgb(229, 111, 127);
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            border: 1px solid transparent;
+            position: relative;
+            margin: 30px 0 0 0;
+        }
+
+        span{
+            color: rgb(229, 111, 127);
+        }
+
+        #again{
+            margin: 30px 50px 0 50px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cover">
+        <h1>传奇调查员</h1>
+        <h1>生成器</h1>
+        <h2>————1.0————</h2>
+        <input class="btn" type="button" value="一 键 天 命" onclick="show()"/>
+    </div>
+   
+    <div id="result">
+        <h2>生成结果</h2>
+        <p id="tips">亲爱的调查员，祝您旅途愉快</p>
+        <div id="text">
+        <p>性别：<span id="sex">女</span></p>
+        <p>年龄：<span id="age">23</span></p>
+        <p>职业：<span id="job">警察（序号35）</span</p>
+        <p>性格：<span id="character">开朗乐观</span></p>
+        <p>重要之人：<span id="someone">已经去世的奶奶</span></p>
+        <p>意义非凡之地：<span id="somewhere">海边的小木屋</span></p>
+        <p>宝贵之物：<span id="something">某人送的水晶项链</span></p>
+        <p>特质：<span id="characteristic">是个赌狗，总是相信自己就是那个天选之人</span></p>
+        <p>难言之隐：<span id="secret">无</span></p>
+        <p>伤口和疤痕：<span id="scar">无</span></p>
+        <p>随身物品：<span id="belongings">瑞士军刀、纸巾、止血贴</span></p>
+    </div>
+        <input class="btn" id="again" type="button" value="好怪，再生一个" onclick=""/>
+    </div>
+
+</body>
+
+</html>

@@ -64,7 +64,7 @@
 
         #result{
             font-weight: bold;           
-            width: 500px;
+            width: 550px;
             height: auto;
             margin: 0 auto;
             position: relative;
@@ -100,6 +100,22 @@
             margin: 30px 0 0 0;
         }
 
+        .btntime{
+            color: rgb(246, 235, 213);
+            width: 180px;
+            height: 50px;
+            background-color: rgb(229, 111, 127);
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            border: 1px solid transparent;
+            position: relative;
+            margin: 30px 8px 0 8px;
+        }
+        #btnnow{
+            background-color: rgb(239,199,191);
+        }
+
         span{
             color: rgb(229, 111, 127);
         }
@@ -116,6 +132,8 @@
         <h1>传奇调查员</h1>
         <h1>生成器</h1>
         <h2>————1.0————</h2>
+        <input class="btntime" id="btnbefore" type="button" value="1920s"  onclick="before()"/>
+        <input class="btntime" id="btnnow" type="button" value="现代"  onclick="now()"/>
         <input class="btn" type="button" value="一 键 天 命" onclick="show()"/>
     </div>
    
@@ -137,7 +155,7 @@
         <p>伤口和疤痕：<span id="scar">无</span></p>
         <p>随身物品：<span id="belongings">瑞士军刀、纸巾、止血贴</span></p>
     </div>
-        <input class="btn" id="again" type="button" value="好怪，再生一个" onclick=""/>
+        <input class="btn" id="again" type="button" value="好怪，再生一个" onclick="show()"/>
     </div>
 
 </body>

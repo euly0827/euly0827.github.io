@@ -4,11 +4,12 @@ function show() {
     $(".cover").hide();
     $.getJSON("./rdata.json", function (data) {
         var isex = rd(getJsonLength(data, "sex"));
-        console.log(data.beforejob[1].name + data.beforejob[1].num + getJsonLength(data, "beforejob"));
         //性别
         document.getElementById("sex").innerHTML = data.sex[isex];
         //年龄
         document.getElementById("age").innerHTML = Math.floor(Math.random() * 30 + 15);
+        //性格
+        document.getElementById("character").innerHTML = data.character[rd(getJsonLength(data, "character"))];
         //发型与着装，男女区分
         if (isex == 0) {
             document.getElementById("hair").innerHTML = data.haircolor[rd(getJsonLength(data, "haircolor"))] + data.manhair[rd(getJsonLength(data, "manhair"))];

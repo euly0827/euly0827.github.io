@@ -147,18 +147,15 @@ function callme(){
     console.log(1);
     switch(call){
         case 1:
-            alert("作者摸鱼中，联系是不可能联系得上的");
+            alert("作者摸鱼中，联系是不可能联系得上的Ψ(￣∀￣)Ψ");
             break;
         case 2:
-            alert("真、真想找我啊...？");
+            alert("其实吧，想找作者也不是不行...");
         break;
         case 3:
-            alert("那其实想找我也不是不行...");
-        break;
-        case 4:
-            alert("但是你得保证你找到我了不会催我更新！");
+            alert("但是你得先保证你找到了不会催更ヽ(#`Д´)ﾉ！");
         break;
         default:
-            alert("那好叭，你可以加一下这个群：540184048");
+            alert("ヽ(￣▽￣)ﾉ那好叭，你可以加一下这个群：540184048");
     }
 }

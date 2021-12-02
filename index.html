@@ -130,6 +130,25 @@
         #again {
             margin: 20px 0px 0 0px;
         }
+
+        #call{
+		    top: 0px;
+		    overflow: hidden;
+		    position: fixed;
+		    right: 0px;
+		    z-index: 999;
+            display: block;
+		    float: right;
+		    margin-left: 10px;
+		    outline: 0 none;
+		    height: 40px;
+		    width: 85px;
+            margin-top: 0;
+            color: rgb(246, 235, 213);
+            background-color: rgb(245, 193, 117);
+            font-size: 18px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -166,6 +185,8 @@
         </div>
         <input class="btn" id="again" type="button" value="好怪，再生一个" onclick="show()" />
     </div>
+
+		<input class="btn" id="call" type="button" value="联系作者" onclick="callme()"/>
 
 </body>
 

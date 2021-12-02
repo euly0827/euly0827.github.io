@@ -1,5 +1,5 @@
 var time = 0;
-
+var call = 0;
 function show() {
     $(".cover").hide();
     $.getJSON("./rdata.json", function (data) {
@@ -140,4 +140,25 @@ function now() {
     document.getElementById("btnnow2").style.backgroundColor = "rgb(229, 111, 127)";
     document.getElementById("btnbefore1").style.backgroundColor = "rgb(239,199,191)";
     document.getElementById("btnbefore2").style.backgroundColor = "rgb(239,199,191)";
+}
+
+function callme(){
+    call++;
+    console.log(1);
+    switch(call){
+        case 1:
+            alert("作者摸鱼中，联系是不可能联系得上的");
+            break;
+        case 2:
+            alert("真、真想找我啊...？");
+        break;
+        case 3:
+            alert("那其实想找我也不是不行...");
+        break;
+        case 4:
+            alert("但是你得保证你找到我了不会催我更新！");
+        break;
+        default:
+            alert("那好叭，你可以加一下这个群：540184048");
+    }
 }

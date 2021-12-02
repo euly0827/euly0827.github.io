@@ -4,45 +4,79 @@ function show() {
     $(".cover").hide();
     $.getJSON("./rdata.json", function (data) {
         var isex = rd(getJsonLength(data, "sex"));
-        var ijob = rd(getJsonLength(data, "job"));
-        console.log(data.beforejob[1].name + data.beforejob[1].num);
+        console.log(data.beforejob[1].name + data.beforejob[1].num + getJsonLength(data, "beforejob"));
         //性别
         document.getElementById("sex").innerHTML = data.sex[isex];
         //年龄
         document.getElementById("age").innerHTML = Math.floor(Math.random() * 30 + 15);
         //发型与着装，男女区分
         if (isex == 0) {
-            document.getElementById("hair").innerHTML = data.haircolor[rd(getJsonLength(data, "haircolor"))] + "的" + data.manhair[rd(getJsonLength(data, "manhair"))];
-            document.getElementById("dress").innerHTML = data.mandress[rd(getJsonLength(data, "mandress"))];
+            document.getElementById("hair").innerHTML = data.haircolor[rd(getJsonLength(data, "haircolor"))] + data.manhair[rd(getJsonLength(data, "manhair"))];
+            //document.getElementById("dress").innerHTML = data.mandress[rd(getJsonLength(data, "mandress"))];
         } else if (isex == 1) {
-            document.getElementById("hair").innerHTML = data.haircolor[rd(getJsonLength(data, "haircolor"))] + "的" + data.womanhair[rd(getJsonLength(data, "womanhair"))];
-            document.getElementById("dress").innerHTML = data.womandress[rd(getJsonLength(data, "womandress"))];
+            document.getElementById("hair").innerHTML = data.haircolor[rd(getJsonLength(data, "haircolor"))] + data.womanhair[rd(getJsonLength(data, "womanhair"))];
+            //document.getElementById("dress").innerHTML = data.womandress[rd(getJsonLength(data, "womandress"))];
         }
-        //职业
-        document.getElementById("job").innerHTML = data.job[ijob] + "  (序号" + (ijob + 1) + ")";
-        //重要之人
-        document.getElementById("someone").innerHTML = data.someone[rd(getJsonLength(data, "someone"))];
-        //重要之地
-        document.getElementById("somewhere").innerHTML = data.somewhere[rd(getJsonLength(data, "somewhere"))];
-        //重要之物
-        document.getElementById("something").innerHTML = data.something[rd(getJsonLength(data, "something"))];
-        //特质
-        document.getElementById("characteristic").innerHTML = data.characteristic[rd(getJsonLength(data, "characteristic"))];
-        //难言之隐
-        if (Math.random() > 0.4) {
-            document.getElementById("secret").innerHTML = data.secret[rd(getJsonLength(data, "secret"))];
-        } else {
-            document.getElementById("secret").innerHTML = "无";
+        //1920s
+        if (time == 0) {
+            //年代显示
+            document.getElementById("time").innerHTML = "1920s";
+            //职业
+            document.getElementById("job").innerHTML = data.beforejob[rd(getJsonLength(data, "beforejob"))].name + "  (序号" + data.beforejob[rd(getJsonLength(data, "beforejob"))].num + ")";
+            //重要之人
+            document.getElementById("someone").innerHTML = data.someone[rd(getJsonLength(data, "someone"))];
+            //重要之地
+            document.getElementById("somewhere").innerHTML = data.beforesomewhere[rd(getJsonLength(data, "beforesomewhere"))];
+            //重要之物
+            document.getElementById("something").innerHTML = data.beforesomething[rd(getJsonLength(data, "beforesomething"))];
+            //特质
+            document.getElementById("characteristic").innerHTML = data.characteristic[rd(getJsonLength(data, "characteristic"))];
+            //难言之隐
+            if (Math.random() > 0.4) {
+                document.getElementById("secret").innerHTML = data.beforesecret[rd(getJsonLength(data, "beforesecret"))];
+            } else {
+                document.getElementById("secret").innerHTML = "无";
+            }
+            //伤疤
+            if (Math.random() > 0.8) {
+                document.getElementById("scar").innerHTML = data.beforescar[rd(getJsonLength(data, "beforescar"))];
+            } else {
+                document.getElementById("scar").innerHTML = "无";
+            }
+            //随身物品
+            var Ar = rd3(getJsonLength(data, "beforebelongings"));
+            document.getElementById("belongings").innerHTML = data.beforebelongings[Ar[0]] + "、" + data.beforebelongings[Ar[1]] + "、" + data.beforebelongings[Ar[2]];
+
+        }else if (time == 1) {//现代
+            //年代显示
+            document.getElementById("time").innerHTML = "现代";
+            //职业
+            document.getElementById("job").innerHTML = data.nowjob[rd(getJsonLength(data, "nowjob"))].name + "  (序号" + data.nowjob[rd(getJsonLength(data, "nowjob"))].num + ")";
+            //重要之人
+            document.getElementById("someone").innerHTML = data.someone[rd(getJsonLength(data, "someone"))];
+            //重要之地
+            document.getElementById("somewhere").innerHTML = data.nowsomewhere[rd(getJsonLength(data, "nowsomewhere"))];
+            //重要之物
+            document.getElementById("something").innerHTML = data.nowsomething[rd(getJsonLength(data, "nowsomething"))];
+            //特质
+            document.getElementById("characteristic").innerHTML = data.characteristic[rd(getJsonLength(data, "characteristic"))];
+            //难言之隐
+            if (Math.random() > 0.4) {
+                document.getElementById("secret").innerHTML = data.nowsecret[rd(getJsonLength(data, "nowsecret"))];
+            } else {
+                document.getElementById("secret").innerHTML = "无";
+            }
+            //伤疤
+            if (Math.random() > 0.8) {
+                document.getElementById("scar").innerHTML = data.nowscar[rd(getJsonLength(data, "nowscar"))];
+            } else {
+                document.getElementById("scar").innerHTML = "无";
+            }
+            //随身物品
+            var Ar = rd3(getJsonLength(data, "nowbelongings"));
+            document.getElementById("belongings").innerHTML = data.nowbelongings[Ar[0]] + "、" + data.nowbelongings[Ar[1]] + "、" + data.nowbelongings[Ar[2]];
+
         }
-        //伤疤
-        if (Math.random() > 0.8) {
-            document.getElementById("scar").innerHTML = data.scar[rd(getJsonLength(data, "scar"))];
-        } else {
-            document.getElementById("scar").innerHTML = "无";
-        }
-        //随身物品
-        var Ar = rd3(getJsonLength(data,"belongings"));
-        document.getElementById("belongings").innerHTML = data.belongings[Ar[0]] + "、" + data.belongings[Ar[1]] + "、" + data.belongings[Ar[2]];
     })
     document.getElementById("result").style.display = "block";
     //   console.log(rd(getJsonLength(data,"sex")));
@@ -91,14 +125,18 @@ function rd3(length) {
     return Arr;
 }
 
-function before(){
+function before() {
     time = 0;
-    document.getElementById("btnbefore").style.backgroundColor = "rgb(229, 111, 127)";
-    document.getElementById("btnnow").style.backgroundColor = "rgb(239,199,191)";
+    document.getElementById("btnbefore1").style.backgroundColor = "rgb(229, 111, 127)";
+    document.getElementById("btnbefore2").style.backgroundColor = "rgb(229, 111, 127)";
+    document.getElementById("btnnow1").style.backgroundColor = "rgb(239,199,191)";
+    document.getElementById("btnnow2").style.backgroundColor = "rgb(239,199,191)";
 }
 
-function now(){
+function now() {
     time = 1;
-    document.getElementById("btnnow").style.backgroundColor = "rgb(229, 111, 127)";
-    document.getElementById("btnbefore").style.backgroundColor = "rgb(239,199,191)";
+    document.getElementById("btnnow1").style.backgroundColor = "rgb(229, 111, 127)";
+    document.getElementById("btnnow2").style.backgroundColor = "rgb(229, 111, 127)";
+    document.getElementById("btnbefore1").style.backgroundColor = "rgb(239,199,191)";
+    document.getElementById("btnbefore2").style.backgroundColor = "rgb(239,199,191)";
 }

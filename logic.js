@@ -7,7 +7,7 @@ function show() {
     $(".cover").hide();
     $.getJSON("./rdata.json", function (data) {
         isex = rd(getJsonLength(data, "sex"));
-        iage = Math.floor(Math.random() * 30 + 15);
+        iage = Math.floor(Math.random() * 30 + 0);
 
         
         //性别
@@ -28,7 +28,7 @@ function show() {
         if (time == 0) {
             //年代显示
             document.getElementById("time").innerHTML = "1920s";
-           //重要之人
+            //重要之人
             document.getElementById("someone").innerHTML = data.someone[rd(getJsonLength(data, "someone"))];
             //重要之地
             document.getElementById("somewhere").innerHTML = data.beforesomewhere[rd(getJsonLength(data, "beforesomewhere"))];
@@ -193,6 +193,12 @@ function foundjob(data) {
                 
             }
 
+        }
+    }else{
+        if(time==0){
+            document.getElementById("job").innerHTML = data.beforejob[rd(getJsonLength(data, "beforejob"))].name + "  (序号" + data.beforejob[rd(getJsonLength(data, "beforejob"))].num + ")";
+        }else{
+            document.getElementById("job").innerHTML = data.nowjob[rd(getJsonLength(data, "nowjob"))].name + "  (序号" + data.nowjob[rd(getJsonLength(data,"nowjob"))].num + ")";
         }
     }
 

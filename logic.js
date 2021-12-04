@@ -7,7 +7,7 @@ function show() {
     $(".cover").hide();
     $.getJSON("./rdata.json", function (data) {
         isex = rd(getJsonLength(data, "sex"));
-        iage = Math.floor(Math.random() * 30 + 0);
+        iage = Math.floor(Math.random() * 30 + 15);
 
         
         //性别
